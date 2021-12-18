@@ -8,6 +8,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/filter.css">
 <link rel="stylesheet" href="css/nouislider.min.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
@@ -36,6 +37,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
         <script src="js/tailDT.js"></script>
 <script src="js/nouislider.min.js"></script>
 <script src="js/wNumb.js"></script>
@@ -59,7 +61,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[47.1468628611493,4.362831507667539],[51.70215093283183,13.674915032219618]]);
+        }).fitBounds([[43.76827347423678,2.935653358980927],[54.202423232394,24.265517140736634]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -112,14 +114,6 @@
                     <tr>\
                         <th scope="row">Placename</th>\
                         <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Latitude</th>\
-                        <td>' + (feature.properties['Issuer_Latitude'] !== null ? autolinker.link(feature.properties['Issuer_Latitude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Longitude</th>\
-                        <td>' + (feature.properties['Issuer_Longitude'] !== null ? autolinker.link(feature.properties['Issuer_Longitude'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Occurences</th>\
@@ -404,8 +398,15 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Nennungen von Ausstellungsorten<br /><table><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_43.png" /></td><td>4</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_54.png" /></td><td>5</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_65.png" /></td><td>6</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_76.png" /></td><td>7</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_87.png" /></td><td>8</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_98.png" /></td><td>9</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_139.png" /></td><td>13</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_1610.png" /></td><td>16</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_2311.png" /></td><td>23</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_2712.png" /></td><td>27</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_4413.png" /></td><td>44</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_14.png" /></td><td></td></tr></table>': layer_NennungenvonAusstellungsorten_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Nennungen von Ausstellungsorten<br /><table><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_43.png" /></td><td>4</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_54.png" /></td><td>5</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_65.png" /></td><td>6</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_76.png" /></td><td>7</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_87.png" /></td><td>8</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_98.png" /></td><td>9</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_139.png" /></td><td>13</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_1610.png" /></td><td>16</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_2311.png" /></td><td>23</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_2712.png" /></td><td>27</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_4413.png" /></td><td>44</td></tr><tr><td style="text-align: center;"><img src="legend/NennungenvonAusstellungsorten_1_14.png" /></td><td></td></tr></table>': layer_NennungenvonAusstellungsorten_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_NennungenvonAusstellungsorten_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Issuer_place'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
         var mapDiv = document.getElementById('map');
         var row = document.createElement('div');
         row.className="row";
