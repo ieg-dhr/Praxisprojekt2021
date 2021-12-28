@@ -758,13 +758,13 @@ function fnc_project_color(values, context) {
 
 
 function exp_Paths_1rule0_eval_expression(context) {
-    // Document_t = 'Geburtsbrief' OR Document_t = 'Geburtsurkunde'
+    // Document_type = 'Geburtsbrief' OR Document_type = 'Geburtsurkunde'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return ((feature.properties['Document_t']  == 'Geburtsbrief') || (feature.properties['Document_t']  == 'Geburtsurkunde'));
+        return ((feature.properties['Document_type']  == 'Geburtsbrief') || (feature.properties['Document_type']  == 'Geburtsurkunde'));
     } else {
-        return ((feature['Document_t']  == 'Geburtsbrief') || (feature['Document_t']  == 'Geburtsurkunde'));
+        return ((feature['Document_type']  == 'Geburtsbrief') || (feature['Document_type']  == 'Geburtsurkunde'));
     }
 }
