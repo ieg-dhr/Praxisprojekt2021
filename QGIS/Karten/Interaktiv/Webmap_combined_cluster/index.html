@@ -37,10 +37,10 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="js/leaflet.markercluster.js"></script>
-        <script src="data/Fremdsprachig_1.js"></script>
-        <script src="data/Mnner_2.js"></script>
-        <script src="data/Frauen_3.js"></script>
-        <script src="data/Gruppen_4.js"></script>
+        <script src="data/FremdsprachigeBriefe_1.js"></script>
+        <script src="data/BriefefrMnner_2.js"></script>
+        <script src="data/BriefefrFrauen_3.js"></script>
+        <script src="data/BriefefrPersonengruppen_4.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -96,7 +96,7 @@
         });
         layer_OpenStreetMap_0;
         map.addLayer(layer_OpenStreetMap_0);
-        function pop_Fremdsprachig_1(feature, layer) {
+        function pop_FremdsprachigeBriefe_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -161,20 +161,16 @@
                         <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_place_occurrence</th>\
-                        <td>' + (feature.properties['Issuer_place_occurrence'] !== null ? autolinker.link(feature.properties['Issuer_place_occurrence'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Recipient_place_of_origin</th>\
+                        <th scope="row">Recipient\'s place of origin</th>\
                         <td>' + (feature.properties['Recipient_place_of_origin'] !== null ? autolinker.link(feature.properties['Recipient_place_of_origin'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Fremdsprachig_1_0() {
+        function style_FremdsprachigeBriefe_1_0() {
             return {
-                pane: 'pane_Fremdsprachig_1',
+                pane: 'pane_FremdsprachigeBriefe_1',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -188,147 +184,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Fremdsprachig_1');
-        map.getPane('pane_Fremdsprachig_1').style.zIndex = 401;
-        map.getPane('pane_Fremdsprachig_1').style['mix-blend-mode'] = 'normal';
-        var layer_Fremdsprachig_1 = new L.geoJson(json_Fremdsprachig_1, {
+        map.createPane('pane_FremdsprachigeBriefe_1');
+        map.getPane('pane_FremdsprachigeBriefe_1').style.zIndex = 401;
+        map.getPane('pane_FremdsprachigeBriefe_1').style['mix-blend-mode'] = 'normal';
+        var layer_FremdsprachigeBriefe_1 = new L.geoJson(json_FremdsprachigeBriefe_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Fremdsprachig_1',
-            layerName: 'layer_Fremdsprachig_1',
-            pane: 'pane_Fremdsprachig_1',
-            onEachFeature: pop_Fremdsprachig_1,
+            dataVar: 'json_FremdsprachigeBriefe_1',
+            layerName: 'layer_FremdsprachigeBriefe_1',
+            pane: 'pane_FremdsprachigeBriefe_1',
+            onEachFeature: pop_FremdsprachigeBriefe_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Fremdsprachig_1_0(feature));
+                return L.circleMarker(latlng, style_FremdsprachigeBriefe_1_0(feature));
             },
         });
-        var cluster_Fremdsprachig_1 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_FremdsprachigeBriefe_1 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_Fremdsprachig_1.addLayer(layer_Fremdsprachig_1);
+        cluster_FremdsprachigeBriefe_1.addLayer(layer_FremdsprachigeBriefe_1);
 
-        bounds_group.addLayer(layer_Fremdsprachig_1);
-        cluster_Fremdsprachig_1.addTo(map);
-        function pop_Mnner_2(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Archival_record'] !== null ? autolinker.link(feature.properties['Archival_record'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Title</th>\
-                        <td>' + (feature.properties['Title'] !== null ? autolinker.link(feature.properties['Title'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Recipient\'s gender</th>\
-                        <td>' + (feature.properties['Recipient_gender'] !== null ? autolinker.link(feature.properties['Recipient_gender'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Language</th>\
-                        <td>' + (feature.properties['Language'] !== null ? autolinker.link(feature.properties['Language'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Document_type</th>\
-                        <td>' + (feature.properties['Document_type'] !== null ? autolinker.link(feature.properties['Document_type'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Issuer category</th>\
-                        <td>' + (feature.properties['Issuer_category_2'] !== null ? autolinker.link(feature.properties['Issuer_category_2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Issuer function/profession</th>\
-                        <td>' + (feature.properties['Issuer_function_profession_title'] !== null ? autolinker.link(feature.properties['Issuer_function_profession_title'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Issuer</th>\
-                        <td>' + (feature.properties['Issuer'] !== null ? autolinker.link(feature.properties['Issuer'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Date</th>\
-                        <td>' + (feature.properties['Date'] !== null ? autolinker.link(feature.properties['Date'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Year</th>\
-                        <td>' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Permalink</th>\
-                        <td>' + (feature.properties['Permalink'] !== null ? autolinker.link(feature.properties['Permalink'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Place of Issue</th>\
-                        <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Issuer_place_occurrence</th>\
-                        <td>' + (feature.properties['Issuer_place_occurrence'] !== null ? autolinker.link(feature.properties['Issuer_place_occurrence'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Recipient_place_of_origin</th>\
-                        <td>' + (feature.properties['Recipient_place_of_origin'] !== null ? autolinker.link(feature.properties['Recipient_place_of_origin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Mnner_2_0() {
-            return {
-                pane: 'pane_Mnner_2',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(203,11,59,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Mnner_2');
-        map.getPane('pane_Mnner_2').style.zIndex = 402;
-        map.getPane('pane_Mnner_2').style['mix-blend-mode'] = 'normal';
-        var layer_Mnner_2 = new L.geoJson(json_Mnner_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Mnner_2',
-            layerName: 'layer_Mnner_2',
-            pane: 'pane_Mnner_2',
-            onEachFeature: pop_Mnner_2,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_Mnner_2_0(feature));
-            },
-        });
-        var cluster_Mnner_2 = new L.MarkerClusterGroup({showCoverageOnHover: false,
-            spiderfyDistanceMultiplier: 2});
-        cluster_Mnner_2.addLayer(layer_Mnner_2);
-
-        bounds_group.addLayer(layer_Mnner_2);
-        cluster_Mnner_2.addTo(map);
-        function pop_Frauen_3(feature, layer) {
+        bounds_group.addLayer(layer_FremdsprachigeBriefe_1);
+        cluster_FremdsprachigeBriefe_1.addTo(map);
+        function pop_BriefefrMnner_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -393,20 +273,128 @@
                         <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_place_occurrence</th>\
-                        <td>' + (feature.properties['Issuer_place_occurrence'] !== null ? autolinker.link(feature.properties['Issuer_place_occurrence'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Recipient_place_of_origin</th>\
+                        <th scope="row">Recipient\'s place of origin</th>\
                         <td>' + (feature.properties['Recipient_place_of_origin'] !== null ? autolinker.link(feature.properties['Recipient_place_of_origin'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Frauen_3_0() {
+        function style_BriefefrMnner_2_0() {
             return {
-                pane: 'pane_Frauen_3',
+                pane: 'pane_BriefefrMnner_2',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(203,11,59,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_BriefefrMnner_2');
+        map.getPane('pane_BriefefrMnner_2').style.zIndex = 402;
+        map.getPane('pane_BriefefrMnner_2').style['mix-blend-mode'] = 'normal';
+        var layer_BriefefrMnner_2 = new L.geoJson(json_BriefefrMnner_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_BriefefrMnner_2',
+            layerName: 'layer_BriefefrMnner_2',
+            pane: 'pane_BriefefrMnner_2',
+            onEachFeature: pop_BriefefrMnner_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_BriefefrMnner_2_0(feature));
+            },
+        });
+        var cluster_BriefefrMnner_2 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_BriefefrMnner_2.addLayer(layer_BriefefrMnner_2);
+
+        bounds_group.addLayer(layer_BriefefrMnner_2);
+        cluster_BriefefrMnner_2.addTo(map);
+        function pop_BriefefrFrauen_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Archival_record'] !== null ? autolinker.link(feature.properties['Archival_record'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Title</th>\
+                        <td>' + (feature.properties['Title'] !== null ? autolinker.link(feature.properties['Title'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Recipient\'s gender</th>\
+                        <td>' + (feature.properties['Recipient_gender'] !== null ? autolinker.link(feature.properties['Recipient_gender'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Language</th>\
+                        <td>' + (feature.properties['Language'] !== null ? autolinker.link(feature.properties['Language'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Document type</th>\
+                        <td>' + (feature.properties['Document_type'] !== null ? autolinker.link(feature.properties['Document_type'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Issuer category</th>\
+                        <td>' + (feature.properties['Issuer_category_2'] !== null ? autolinker.link(feature.properties['Issuer_category_2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Issuer function/profession</th>\
+                        <td>' + (feature.properties['Issuer_function_profession_title'] !== null ? autolinker.link(feature.properties['Issuer_function_profession_title'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Issuer</th>\
+                        <td>' + (feature.properties['Issuer'] !== null ? autolinker.link(feature.properties['Issuer'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Date</th>\
+                        <td>' + (feature.properties['Date'] !== null ? autolinker.link(feature.properties['Date'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year</th>\
+                        <td>' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Permalink</th>\
+                        <td>' + (feature.properties['Permalink'] !== null ? autolinker.link(feature.properties['Permalink'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Place of Issue</th>\
+                        <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Recipient\'s place of origin</th>\
+                        <td>' + (feature.properties['Recipient_place_of_origin'] !== null ? autolinker.link(feature.properties['Recipient_place_of_origin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BriefefrFrauen_3_0() {
+            return {
+                pane: 'pane_BriefefrFrauen_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -420,31 +408,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Frauen_3');
-        map.getPane('pane_Frauen_3').style.zIndex = 403;
-        map.getPane('pane_Frauen_3').style['mix-blend-mode'] = 'normal';
-        var layer_Frauen_3 = new L.geoJson(json_Frauen_3, {
+        map.createPane('pane_BriefefrFrauen_3');
+        map.getPane('pane_BriefefrFrauen_3').style.zIndex = 403;
+        map.getPane('pane_BriefefrFrauen_3').style['mix-blend-mode'] = 'normal';
+        var layer_BriefefrFrauen_3 = new L.geoJson(json_BriefefrFrauen_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Frauen_3',
-            layerName: 'layer_Frauen_3',
-            pane: 'pane_Frauen_3',
-            onEachFeature: pop_Frauen_3,
+            dataVar: 'json_BriefefrFrauen_3',
+            layerName: 'layer_BriefefrFrauen_3',
+            pane: 'pane_BriefefrFrauen_3',
+            onEachFeature: pop_BriefefrFrauen_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Frauen_3_0(feature));
+                return L.circleMarker(latlng, style_BriefefrFrauen_3_0(feature));
             },
         });
-        var cluster_Frauen_3 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_BriefefrFrauen_3 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_Frauen_3.addLayer(layer_Frauen_3);
+        cluster_BriefefrFrauen_3.addLayer(layer_BriefefrFrauen_3);
 
-        bounds_group.addLayer(layer_Frauen_3);
-        cluster_Frauen_3.addTo(map);
-        function pop_Gruppen_4(feature, layer) {
+        bounds_group.addLayer(layer_BriefefrFrauen_3);
+        cluster_BriefefrFrauen_3.addTo(map);
+        function pop_BriefefrPersonengruppen_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -509,10 +497,6 @@
                         <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_place_occurrence</th>\
-                        <td>' + (feature.properties['Issuer_place_occurrence'] !== null ? autolinker.link(feature.properties['Issuer_place_occurrence'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Recipient\'s place of origin</th>\
                         <td>' + (feature.properties['Recipient_place_of_origin'] !== null ? autolinker.link(feature.properties['Recipient_place_of_origin'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -520,9 +504,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Gruppen_4_0() {
+        function style_BriefefrPersonengruppen_4_0() {
             return {
-                pane: 'pane_Gruppen_4',
+                pane: 'pane_BriefefrPersonengruppen_4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -536,30 +520,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Gruppen_4');
-        map.getPane('pane_Gruppen_4').style.zIndex = 404;
-        map.getPane('pane_Gruppen_4').style['mix-blend-mode'] = 'normal';
-        var layer_Gruppen_4 = new L.geoJson(json_Gruppen_4, {
+        map.createPane('pane_BriefefrPersonengruppen_4');
+        map.getPane('pane_BriefefrPersonengruppen_4').style.zIndex = 404;
+        map.getPane('pane_BriefefrPersonengruppen_4').style['mix-blend-mode'] = 'normal';
+        var layer_BriefefrPersonengruppen_4 = new L.geoJson(json_BriefefrPersonengruppen_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Gruppen_4',
-            layerName: 'layer_Gruppen_4',
-            pane: 'pane_Gruppen_4',
-            onEachFeature: pop_Gruppen_4,
+            dataVar: 'json_BriefefrPersonengruppen_4',
+            layerName: 'layer_BriefefrPersonengruppen_4',
+            pane: 'pane_BriefefrPersonengruppen_4',
+            onEachFeature: pop_BriefefrPersonengruppen_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Gruppen_4_0(feature));
+                return L.circleMarker(latlng, style_BriefefrPersonengruppen_4_0(feature));
             },
         });
-        var cluster_Gruppen_4 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_BriefefrPersonengruppen_4 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_Gruppen_4.addLayer(layer_Gruppen_4);
+        cluster_BriefefrPersonengruppen_4.addLayer(layer_BriefefrPersonengruppen_4);
 
-        bounds_group.addLayer(layer_Gruppen_4);
-        cluster_Gruppen_4.addTo(map);
+        bounds_group.addLayer(layer_BriefefrPersonengruppen_4);
+        cluster_BriefefrPersonengruppen_4.addTo(map);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -571,7 +555,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Gruppen_4.png" /> Gruppen': cluster_Gruppen_4,'<img src="legend/Frauen_3.png" /> Frauen': cluster_Frauen_3,'<img src="legend/Mnner_2.png" /> Männer': cluster_Mnner_2,'<img src="legend/Fremdsprachig_1.png" /> Fremdsprachig': cluster_Fremdsprachig_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/BriefefrPersonengruppen_4.png" /> Briefe für Personengruppen': cluster_BriefefrPersonengruppen_4,'<img src="legend/BriefefrFrauen_3.png" /> Briefe für Frauen': cluster_BriefefrFrauen_3,'<img src="legend/BriefefrMnner_2.png" /> Briefe für Männer': cluster_BriefefrMnner_2,'<img src="legend/FremdsprachigeBriefe_1.png" /> Fremdsprachige Briefe': cluster_FremdsprachigeBriefe_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
