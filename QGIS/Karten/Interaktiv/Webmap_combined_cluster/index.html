@@ -10,8 +10,6 @@
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
-        <link rel="stylesheet" href="css/filter.css">
-<link rel="stylesheet" href="css/nouislider.min.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
@@ -39,9 +37,6 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="js/leaflet.markercluster.js"></script>
-        <script src="js/tailDT.js"></script>
-<script src="js/nouislider.min.js"></script>
-<script src="js/wNumb.js"></script>
         <script src="data/Fremdsprachig_1.js"></script>
         <script src="data/Mnner_2.js"></script>
         <script src="data/Frauen_3.js"></script>
@@ -92,7 +87,7 @@
         map.getPane('pane_OpenStreetMap_0').style.zIndex = 400;
         var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             pane: 'pane_OpenStreetMap_0',
-            opacity: 0.5,
+            opacity: 0.8,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
@@ -126,27 +121,23 @@
                         <td>' + (feature.properties['Title'] !== null ? autolinker.link(feature.properties['Title'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Recipient_gender</th>\
+                        <th scope="row">Recipient\'s gender</th>\
                         <td>' + (feature.properties['Recipient_gender'] !== null ? autolinker.link(feature.properties['Recipient_gender'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Recipient_profession</th>\
-                        <td>' + (feature.properties['Recipient_profession'] !== null ? autolinker.link(feature.properties['Recipient_profession'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Language</th>\
                         <td>' + (feature.properties['Language'] !== null ? autolinker.link(feature.properties['Language'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Document_type</th>\
+                        <th scope="row">Document type</th>\
                         <td>' + (feature.properties['Document_type'] !== null ? autolinker.link(feature.properties['Document_type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_category_2</th>\
+                        <th scope="row">Issuer category</th>\
                         <td>' + (feature.properties['Issuer_category_2'] !== null ? autolinker.link(feature.properties['Issuer_category_2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_function_profession_title</th>\
+                        <th scope="row">Issuer function/profession</th>\
                         <td>' + (feature.properties['Issuer_function_profession_title'] !== null ? autolinker.link(feature.properties['Issuer_function_profession_title'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -166,7 +157,7 @@
                         <td>' + (feature.properties['Permalink'] !== null ? autolinker.link(feature.properties['Permalink'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_place</th>\
+                        <th scope="row">Place of issue</th>\
                         <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -246,12 +237,8 @@
                         <td>' + (feature.properties['Title'] !== null ? autolinker.link(feature.properties['Title'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Recipient_gender</th>\
+                        <th scope="row">Recipient\'s gender</th>\
                         <td>' + (feature.properties['Recipient_gender'] !== null ? autolinker.link(feature.properties['Recipient_gender'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Recipient_profession</th>\
-                        <td>' + (feature.properties['Recipient_profession'] !== null ? autolinker.link(feature.properties['Recipient_profession'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Language</th>\
@@ -262,11 +249,11 @@
                         <td>' + (feature.properties['Document_type'] !== null ? autolinker.link(feature.properties['Document_type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_category_2</th>\
+                        <th scope="row">Issuer category</th>\
                         <td>' + (feature.properties['Issuer_category_2'] !== null ? autolinker.link(feature.properties['Issuer_category_2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_function_profession_title</th>\
+                        <th scope="row">Issuer function/profession</th>\
                         <td>' + (feature.properties['Issuer_function_profession_title'] !== null ? autolinker.link(feature.properties['Issuer_function_profession_title'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -286,7 +273,7 @@
                         <td>' + (feature.properties['Permalink'] !== null ? autolinker.link(feature.properties['Permalink'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_place</th>\
+                        <th scope="row">Place of Issue</th>\
                         <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -366,27 +353,23 @@
                         <td>' + (feature.properties['Title'] !== null ? autolinker.link(feature.properties['Title'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Recipient_gender</th>\
+                        <th scope="row">Recipient\'s gender</th>\
                         <td>' + (feature.properties['Recipient_gender'] !== null ? autolinker.link(feature.properties['Recipient_gender'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Recipient_profession</th>\
-                        <td>' + (feature.properties['Recipient_profession'] !== null ? autolinker.link(feature.properties['Recipient_profession'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Language</th>\
                         <td>' + (feature.properties['Language'] !== null ? autolinker.link(feature.properties['Language'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Document_type</th>\
+                        <th scope="row">Document type</th>\
                         <td>' + (feature.properties['Document_type'] !== null ? autolinker.link(feature.properties['Document_type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_category_2</th>\
+                        <th scope="row">Issuer category</th>\
                         <td>' + (feature.properties['Issuer_category_2'] !== null ? autolinker.link(feature.properties['Issuer_category_2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_function_profession_title</th>\
+                        <th scope="row">Issuer function/profession</th>\
                         <td>' + (feature.properties['Issuer_function_profession_title'] !== null ? autolinker.link(feature.properties['Issuer_function_profession_title'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -406,7 +389,7 @@
                         <td>' + (feature.properties['Permalink'] !== null ? autolinker.link(feature.properties['Permalink'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_place</th>\
+                        <th scope="row">Place of Issue</th>\
                         <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -486,27 +469,23 @@
                         <td>' + (feature.properties['Title'] !== null ? autolinker.link(feature.properties['Title'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Recipient_gender</th>\
+                        <th scope="row">Recipient\'s gender</th>\
                         <td>' + (feature.properties['Recipient_gender'] !== null ? autolinker.link(feature.properties['Recipient_gender'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Recipient_profession</th>\
-                        <td>' + (feature.properties['Recipient_profession'] !== null ? autolinker.link(feature.properties['Recipient_profession'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Language</th>\
                         <td>' + (feature.properties['Language'] !== null ? autolinker.link(feature.properties['Language'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Document_type</th>\
+                        <th scope="row">Document type</th>\
                         <td>' + (feature.properties['Document_type'] !== null ? autolinker.link(feature.properties['Document_type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_category_2</th>\
+                        <th scope="row">Issuer category</th>\
                         <td>' + (feature.properties['Issuer_category_2'] !== null ? autolinker.link(feature.properties['Issuer_category_2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_function_profession_title</th>\
+                        <th scope="row">Issuer function/profession</th>\
                         <td>' + (feature.properties['Issuer_function_profession_title'] !== null ? autolinker.link(feature.properties['Issuer_function_profession_title'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -514,7 +493,8 @@
                         <td>' + (feature.properties['Issuer'] !== null ? autolinker.link(feature.properties['Issuer'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Date</strong><br />' + (feature.properties['Date'] !== null ? autolinker.link(feature.properties['Date'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Date</th>\
+                        <td>' + (feature.properties['Date'] !== null ? autolinker.link(feature.properties['Date'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Year</th>\
@@ -525,7 +505,7 @@
                         <td>' + (feature.properties['Permalink'] !== null ? autolinker.link(feature.properties['Permalink'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Issuer_place</th>\
+                        <th scope="row">Place of issue</th>\
                         <td>' + (feature.properties['Issuer_place'] !== null ? autolinker.link(feature.properties['Issuer_place'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -533,7 +513,7 @@
                         <td>' + (feature.properties['Issuer_place_occurrence'] !== null ? autolinker.link(feature.properties['Issuer_place_occurrence'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Recipient_place_of_origin</th>\
+                        <th scope="row">Recipient\'s place of origin</th>\
                         <td>' + (feature.properties['Recipient_place_of_origin'] !== null ? autolinker.link(feature.properties['Recipient_place_of_origin'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -593,246 +573,6 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'<img src="legend/Gruppen_4.png" /> Gruppen': cluster_Gruppen_4,'<img src="legend/Frauen_3.png" /> Frauen': cluster_Frauen_3,'<img src="legend/Mnner_2.png" /> Männer': cluster_Mnner_2,'<img src="legend/Fremdsprachig_1.png" /> Fremdsprachig': cluster_Fremdsprachig_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
         setBounds();
-        var mapDiv = document.getElementById('map');
-        var row = document.createElement('div');
-        row.className="row";
-        row.id="all";
-        row.style.height = "100%";
-        var col1 = document.createElement('div');
-        col1.className="col9";
-        col1.id = "mapWindow";
-        col1.style.height = "99%";
-        col1.style.width = "80%";
-        col1.style.display = "inline-block";
-        var col2 = document.createElement('div');
-        col2.className="col3";
-        col2.id = "menu";
-        col2.style.display = "inline-block";
-        mapDiv.parentNode.insertBefore(row, mapDiv);
-        document.getElementById("all").appendChild(col1);
-        document.getElementById("all").appendChild(col2);
-        col1.appendChild(mapDiv)
-        var Filters = {"Year": "int","Document_type": "str","Issuer_category_2": "str"};
-        function filterFunc() {
-          map.eachLayer(function(lyr){
-          if ("options" in lyr && "dataVar" in lyr["options"]){
-            features = this[lyr["options"]["dataVar"]].features.slice(0);
-            try{
-              for (key in Filters){
-                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
-                if (Filters[key] == "str" || Filters[key] == "bool"){
-                  var selection = [];
-                  var options = document.getElementById("sel_" + keyS).options
-                  for (var i=0; i < options.length; i++) {
-                    if (options[i].selected) selection.push(options[i].value);
-                  }
-                    try{
-                      if (key in features[0].properties){
-                        for (i = features.length - 1;
-                          i >= 0; --i){
-                          if (selection.indexOf(
-                          features[i].properties[key])<0
-                          && selection.length>0) {
-                          features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                  }
-                }
-                if (Filters[key] == "int"){
-                  sliderVals =  document.getElementById(
-                    "div_" + keyS).noUiSlider.get();
-                  try{
-                    if (key in features[0].properties){
-                    for (i = features.length - 1; i >= 0; --i){
-                      if (parseInt(features[i].properties[key])
-                          < sliderVals[0]
-                          || parseInt(features[i].properties[key])
-                          > sliderVals[1]){
-                            features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                    }
-                  }
-                if (Filters[key] == "real"){
-                  sliderVals =  document.getElementById(
-                    "div_" + keyS).noUiSlider.get();
-                  try{
-                    if (key in features[0].properties){
-                    for (i = features.length - 1; i >= 0; --i){
-                      if (features[i].properties[key]
-                          < sliderVals[0]
-                          || features[i].properties[key]
-                          > sliderVals[1]){
-                            features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                    }
-                  }
-                if (Filters[key] == "date"
-                  || Filters[key] == "datetime"
-                  || Filters[key] == "time"){
-                  try{
-                    if (key in features[0].properties){
-                      HTMLkey = key.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g, '');
-                      startdate = document.getElementById("dat_" +
-                        HTMLkey + "_date1").value.replace(" ", "T");
-                      enddate = document.getElementById("dat_" +
-                        HTMLkey + "_date2").value.replace(" ", "T");
-                      for (i = features.length - 1; i >= 0; --i){
-                        if (features[i].properties[key] < startdate
-                          || features[i].properties[key] > enddate){
-                          features.splice(i,1);
-                        }
-                      }
-                    }
-                  } catch(err){
-                  }
-                }
-              }
-            } catch(err){
-            }
-          this[lyr["options"]["layerName"]].clearLayers();
-          this[lyr["options"]["layerName"]].addData(features);
-          }
-          })
-        }
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Year = document.createElement("div");
-            div_Year.id = "div_Year";
-            div_Year.className = "slider";
-            document.getElementById("menu").appendChild(div_Year);
-            var lab_Year = document.createElement('div');
-            lab_Year.innerHTML  = 'Year: <span id="val_Year"></span>';
-            lab_Year.className = 'filterlabel';
-            document.getElementById("menu").appendChild(lab_Year);
-            var reset_Year = document.createElement('div');
-            reset_Year.innerHTML = 'clear filter';
-            reset_Year.className = 'filterlabel';
-            lab_Year.className = 'filterlabel';
-            reset_Year.onclick = function() {
-                sel_Year.noUiSlider.reset();
-            };
-            document.getElementById("menu").appendChild(reset_Year);
-            var sel_Year = document.getElementById('div_Year');
-            noUiSlider.create(sel_Year, {
-                connect: true,
-                start: [1565, 1889],
-                step: 1,
-                format: wNumb({
-                    decimals: 0,
-                    }),
-                range: {
-                min: 1565,
-                max: 1889
-                }
-            });
-            sel_Year.noUiSlider.on('update', function (values) {
-            filterVals =[];
-            for (value in values){
-            filterVals.push(parseInt(value))
-            }
-            val_Year = document.getElementById('val_Year');
-            val_Year.innerHTML = values.join(' - ');
-                filterFunc()
-            });
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Document_type = document.createElement('div');
-            div_Document_type.id = "div_Document_type";
-            div_Document_type.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Document_type);
-            sel_Document_type = document.createElement('select');
-            sel_Document_type.multiple = true;
-            sel_Document_type.size = 10;
-            sel_Document_type.id = "sel_Document_type";
-            var Document_type_options_str = "<option value='' unselected></option>";
-            sel_Document_type.onchange = function(){filterFunc()};
-            Document_type_options_str  += '<option value="Bestellung">Bestellung</option>';
-            Document_type_options_str  += '<option value="Doktordiplom">Doktordiplom</option>';
-            Document_type_options_str  += '<option value="Entlassungsbestätigung">Entlassungsbestätigung</option>';
-            Document_type_options_str  += '<option value="Ernennung">Ernennung</option>';
-            Document_type_options_str  += '<option value="Freimaurerurkunde">Freimaurerurkunde</option>';
-            Document_type_options_str  += '<option value="Geburtsbrief">Geburtsbrief</option>';
-            Document_type_options_str  += '<option value="Geburtsurkunde">Geburtsurkunde</option>';
-            Document_type_options_str  += '<option value="Gesellenbrief">Gesellenbrief</option>';
-            Document_type_options_str  += '<option value="Handwerksbestätigung">Handwerksbestätigung</option>';
-            Document_type_options_str  += '<option value="Illegitimitätslöschung">Illegitimitätslöschung</option>';
-            Document_type_options_str  += '<option value="Legitimation">Legitimation</option>';
-            Document_type_options_str  += '<option value="Lehrbrief">Lehrbrief</option>';
-            Document_type_options_str  += '<option value="Lehrbrief/Gesellenbrief">Lehrbrief/Gesellenbrief</option>';
-            Document_type_options_str  += '<option value="Meisterbrief">Meisterbrief</option>';
-            Document_type_options_str  += '<option value="Notarernennung">Notarernennung</option>';
-            Document_type_options_str  += '<option value="Passierschein">Passierschein</option>';
-            Document_type_options_str  += '<option value="Professordekret">Professordekret</option>';
-            Document_type_options_str  += '<option value="Professorenedikt">Professorenedikt</option>';
-            Document_type_options_str  += '<option value="Reisepass">Reisepass</option>';
-            sel_Document_type.innerHTML = Document_type_options_str;
-            div_Document_type.appendChild(sel_Document_type);
-            var lab_Document_type = document.createElement('div');
-            lab_Document_type.innerHTML = 'Document_type';
-            lab_Document_type.className = 'filterlabel';
-            div_Document_type.appendChild(lab_Document_type);
-            var reset_Document_type = document.createElement('div');
-            reset_Document_type.innerHTML = 'clear filter';
-            reset_Document_type.className = 'filterlabel';
-            reset_Document_type.onclick = function() {
-                var options = document.getElementById("sel_Document_type").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Document_type.appendChild(reset_Document_type);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Issuer_category_2 = document.createElement('div');
-            div_Issuer_category_2.id = "div_Issuer_category_2";
-            div_Issuer_category_2.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Issuer_category_2);
-            sel_Issuer_category_2 = document.createElement('select');
-            sel_Issuer_category_2.multiple = true;
-            sel_Issuer_category_2.size = 10;
-            sel_Issuer_category_2.id = "sel_Issuer_category_2";
-            var Issuer_category_2_options_str = "<option value='' unselected></option>";
-            sel_Issuer_category_2.onchange = function(){filterFunc()};
-            Issuer_category_2_options_str  += '<option value="Beruf">Beruf</option>';
-            Issuer_category_2_options_str  += '<option value="Geistliche Institution">Geistliche Institution</option>';
-            Issuer_category_2_options_str  += '<option value="Geistlicher Amtsträger">Geistlicher Amtsträger</option>';
-            Issuer_category_2_options_str  += '<option value="Gericht">Gericht</option>';
-            Issuer_category_2_options_str  += '<option value="Hofbeamter">Hofbeamter</option>';
-            Issuer_category_2_options_str  += '<option value="Mehrere Aussteller">Mehrere Aussteller</option>';
-            Issuer_category_2_options_str  += '<option value="Richter">Richter</option>';
-            Issuer_category_2_options_str  += '<option value="Stadt/Territorium">Stadt/Territorium</option>';
-            Issuer_category_2_options_str  += '<option value="Weltliche (Verwaltungs-)Institution">Weltliche (Verwaltungs-)Institution</option>';
-            Issuer_category_2_options_str  += '<option value="Weltlicher (Verwaltungs-)beamter/Ministeriale">Weltlicher (Verwaltungs-)beamter/Ministeriale</option>';
-            Issuer_category_2_options_str  += '<option value="Weltlicher Titelträger">Weltlicher Titelträger</option>';
-            Issuer_category_2_options_str  += '<option value="Zunft">Zunft</option>';
-            Issuer_category_2_options_str  += '<option value="Zunftmitglied">Zunftmitglied</option>';
-            Issuer_category_2_options_str  += '<option value="unclear">unclear</option>';
-            sel_Issuer_category_2.innerHTML = Issuer_category_2_options_str;
-            div_Issuer_category_2.appendChild(sel_Issuer_category_2);
-            var lab_Issuer_category_2 = document.createElement('div');
-            lab_Issuer_category_2.innerHTML = 'Issuer_category_2';
-            lab_Issuer_category_2.className = 'filterlabel';
-            div_Issuer_category_2.appendChild(lab_Issuer_category_2);
-            var reset_Issuer_category_2 = document.createElement('div');
-            reset_Issuer_category_2.innerHTML = 'clear filter';
-            reset_Issuer_category_2.className = 'filterlabel';
-            reset_Issuer_category_2.onclick = function() {
-                var options = document.getElementById("sel_Issuer_category_2").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Issuer_category_2.appendChild(reset_Issuer_category_2);
         </script>
     </body>
 </html>
