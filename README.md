@@ -4,7 +4,7 @@
 
 As part of a digital humanities internship at the Institute for European History (IEG) in Mainz, MA student Maximilian Michel created static and interactive maps as well as diagrams tracing early modern birth and apprenticeship letters from the city archives in Mainz. This internship was closely related to the [DigiKAR geohumanities project](https://digikar.eu/) and contributed to the analysis of spatial relations and mobility in the early modern Electorate of Mainz.
 
-Static and interactive maps are located in the [`QGIS/maps` directory](https://github.com/ieg-dhr/Praxisprojekt2021/). While the static maps are provided both as PNG and SVG files, the interactive maps can be viewed as websites hosted by GitHub Pages.
+Static and interactive maps are located in the [`QGIS/maps` directory](https://github.com/ieg-dhr/Praxisprojekt2021/tree/main/QGIS/maps/). While the static maps are provided both as PNG and SVG files, the interactive maps can be viewed as websites hosted by GitHub Pages.
 
 A more detailed description of the repository's content and its context in German is available on the [corresponding website](https://teaching-dhlab.pages.gitlab.rlp.net/geburtsbriefemainz/map2/), which also contains a digital edition of selected records.
 
