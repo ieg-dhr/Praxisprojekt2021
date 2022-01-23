@@ -11,4 +11,4 @@ A more detailed description of the repository's content and its context is avail
 
 *Contact:*
 
-Maximilian Michel
+[Maximilian Michel](https://github.com/mmiche01), JGU Mainz
